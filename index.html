@@ -164,6 +164,15 @@ section{margin:0 0 34px;scroll-margin-top:16px}
 .soon{border-style:dashed;opacity:.85;text-align:center;font-family:var(--px);font-size:11px;color:var(--ink-soft);margin-top:16px}
 .soon b{display:block;font-size:22px;margin-bottom:10px;color:var(--frame-inner)}
 
+.skills-label{font-family:var(--px);font-size:10px;color:var(--red-dark);margin:18px 0 10px}
+.skills{margin:0}
+.rnd-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.rnd h3{margin:6px 0 8px;font-family:var(--px);font-size:13px;line-height:1.5}
+.rnd p{margin:0;font-size:18px}
+.rnd-icon{font-size:30px;line-height:1}
+.status{display:inline-block;margin-top:12px;font-family:var(--px);font-size:8px;padding:5px 7px;border-radius:4px}
+.status.on{background:#dff5e4;border:2px solid #7cc488;color:#2a6a3c}
+.status.explore{background:#fff2d6;border:2px solid #e8c070;color:#8a5a10}
 .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
 .contact-grid a{display:block;text-decoration:none;color:var(--ink)}
 .contact-grid .win{padding:18px}
@@ -207,7 +216,7 @@ footer{text-align:center;font-family:var(--px);font-size:9px;padding:10px 0 40px
   <div class="wrap">
     <div class="loc">ARYAN GHUGARE</div>
     <nav class="quick" aria-label="Sections">
-      <a href="#about">ABOUT</a><a href="#projects">PROJECTS</a><a href="#workshops">WORKSHOPS</a><a href="#contact">CONTACT</a>
+      <a href="#about">ABOUT</a><a href="#projects">PROJECTS</a><a href="#rnd">R&amp;D</a><a href="#workshops">WORKSHOPS</a><a href="#contact">CONTACT</a>
     </nav>
   </div>
 </header>
@@ -225,7 +234,7 @@ footer{text-align:center;font-family:var(--px);font-size:9px;padding:10px 0 40px
         </div>
         <div class="loc popup" id="popup">ARYAN GHUGARE'S WEBSITE</div>
         <div class="menu win" id="menu"><ul>
-          <li data-go="about">ABOUT</li><li data-go="projects">PROJECTS</li><li data-go="workshops">WORKSHOPS</li><li data-go="contact">CONTACT</li><li data-go="close">CLOSE</li>
+          <li data-go="about">ABOUT</li><li data-go="projects">PROJECTS</li><li data-go="rnd">R&amp;D</li><li data-go="workshops">WORKSHOPS</li><li data-go="contact">CONTACT</li><li data-go="close">CLOSE</li>
         </ul></div>
         <div class="dialog win" id="dialog"><span id="dtext"></span><span class="more" id="dmore">▼</span></div>
       </div>
@@ -280,6 +289,10 @@ const SECTIONS = {
           <tr><td>CLUB</td><td>SRA · ROBOTICS</td></tr>
         </table>
         <p>Hi! I'm <b>Aryan Ghugare</b>, an electronics engineering student at <b>VJTI</b>, finishing my B.Tech in <b>2029</b>. I'm a member of <b>SRA</b> (Society of Robotics and Automation), VJTI's robotics club. I like building things from the board up: designing PCBs, writing embedded firmware and getting robots to move.</p>
+        <div class="skills-label">SKILLS</div>
+        <div class="chips skills">
+          <span class="chip red">C / C++</span><span class="chip red">PYTHON</span><span class="chip">SOLDERING</span><span class="chip">READING DATASHEETS</span><span class="chip">DEBUGGING</span><span class="chip">PCB MAKING</span>
+        </div>
       </div>
     </div>`
   },
@@ -303,6 +316,29 @@ const SECTIONS = {
       <a class="btn" href="https://github.com/Aryan2804/Icarus" target="_blank" rel="noopener">VIEW ON GITHUB ▶</a>
     </article>
     <div class="win soon"><b>? ? ?</b>MORE QUESTS LOADING…</div>`
+  },
+  rnd: {
+    title:"R&amp;D", tag:"RESEARCH &amp; DEVELOPMENT",
+    html:`<div class="rnd-grid">
+      <article class="win rnd">
+        <div class="rnd-icon" aria-hidden="true">⚡</div>
+        <div class="status on">● WORKING ON</div>
+        <h3>EMBEDDED SYSTEMS</h3>
+        <p>Microcontrollers, firmware and the hardware they run on, from schematic to a working board.</p>
+      </article>
+      <article class="win rnd">
+        <div class="rnd-icon" aria-hidden="true">🔬</div>
+        <div class="status on">● WORKING ON</div>
+        <h3>HACKERFAB</h3>
+        <p>Working on Hackerfab, which is about making chip fabrication open and accessible.</p>
+      </article>
+      <article class="win rnd">
+        <div class="rnd-icon" aria-hidden="true">🧠</div>
+        <div class="status explore">◌ EXPLORING</div>
+        <h3>NEURAL NETWORKS</h3>
+        <p>Learning how neural networks work and where they fit alongside hardware and robotics.</p>
+      </article>
+    </div>`
   },
   workshops: {
     title:"WORKSHOPS", tag:"TEACHING",
@@ -390,6 +426,7 @@ const OBJECTS=[
   {type:'sign',x:11,y:4,lines:["PROJECT LAB","Where boards get designed, soldered… and occasionally debugged at 3 AM."],go:'projects'},
   {type:'sign',x:11,y:11,lines:["SRA CLUB HALL","Society of Robotics and Automation, VJTI. Workshops happen here!"],go:'workshops'},
   {type:'sign',x:8,y:12,lines:["ARYAN GHUGARE'S WEBSITE","Second-year student at VJTI and part of SRA, VJTI's robotics club."]},
+  {type:'term',x:9,y:3,lines:["R&D TERMINAL","> loading research_log…","Embedded, Hackerfab and neural networks. Opening the log!"],go:'rnd'},
   {type:'mail',x:1,y:4,lines:["It's a mailbox.","Want to send Aryan a message?"],go:'contact'},
   {type:'npc', x:7,y:9,lines:["BEEP BOOP! I'm BOLT, the town robot.","This is ARYAN GHUGARE's website!","Walk into a building's door to look inside. Press ESC or START to open the menu anytime, or just scroll down!"]},
 ];
@@ -439,6 +476,11 @@ function flowers(tx,ty,f){grass(tx,ty);const X=tx*T,Y=ty*T;const cols=['#f05050'
 function fence(tx,ty){grass(tx,ty);const X=tx*T,Y=ty*T;px(X,Y+5,T,3,'#5a6070');px(X,Y+6,T,1,'#fbfbf6');px(X,Y+10,T,3,'#5a6070');px(X,Y+11,T,1,'#fbfbf6');
   px(X+3,Y+2,4,13,'#5a6070');px(X+4,Y+3,2,11,'#fbfbf6');px(X+11,Y+2,4,13,'#5a6070');px(X+12,Y+3,2,11,'#fbfbf6');}
 function sign(o){const X=o.x*T,Y=o.y*T;px(X+7,Y+9,2,6,'#5a3a22');px(X+1,Y+2,14,9,'#5a3820');px(X+2,Y+3,12,7,'#d09a60');px(X+4,Y+5,8,1,'#8a6038');px(X+4,Y+7,6,1,'#8a6038');}
+function term(o,t){const X=o.x*T,Y=o.y*T;
+  px(X+6,Y+11,4,4,'#5a6070');px(X+3,Y+14,10,2,'#5a6070');
+  px(X+1,Y+1,14,11,'#283040');px(X+2,Y+2,12,8,'#1c4a34');
+  const on=(t>>4)%2;px(X+3,Y+3,6,1,'#58e090');px(X+3,Y+5,8,1,'#58e090');px(X+3,Y+7,3+((t>>5)%5),1,'#58e090');if(on)px(X+8+((t>>5)%5)-2,Y+7,2,1,'#c8ffd8');
+  px(X+12,Y+10,1,1,'#f05050');}
 function mail(o){const X=o.x*T,Y=o.y*T;px(X+7,Y+9,2,7,'#5a3a22');px(X+2,Y+2,12,8,'#702028');px(X+3,Y+3,10,6,'#e04848');px(X+3,Y+3,10,1,'#f88080');px(X+12,Y,2,6,'#f8d040');px(X+4,Y+5,5,2,'#702028');}
 function building(b,f){
   const X=b.x*T,Y=b.y*T,w=b.w*T,h=b.h*T,roofH=34;
@@ -600,7 +642,7 @@ function drawWorld(){
   }
   PONDS.forEach(p=>pond(p,tick));
   BUILDINGS.forEach(b=>building(b,f));
-  OBJECTS.forEach(o=>{if(o.type==='sign')sign(o);else if(o.type==='mail')mail(o);else{shadow(o.x*T,o.y*T);drawSprite(ctx,BOLT,o.x*T,o.y*T-(f%2),false)}});
+  OBJECTS.forEach(o=>{if(o.type==='sign')sign(o);else if(o.type==='mail')mail(o);else if(o.type==='term')term(o,tick);else{shadow(o.x*T,o.y*T);drawSprite(ctx,BOLT,o.x*T,o.y*T-(f%2),false)}});
   shadow(player.x,player.y);
   const fr=player.moving?(player.step?1:2):0;
   drawSprite(ctx,sprite(player.dir,fr),player.x,player.y-2-(player.moving&&player.t>.5?1:0),player.dir==='right');
